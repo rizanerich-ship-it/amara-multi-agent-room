@@ -26,7 +26,7 @@ For example:
 - **Your existing assistants and accounts.** A.M.A.R.A. does not provide AI credits or require you to move to a new model. Your assistants keep using the subscription or API key they already have.
 - **Provider-independent multi-agent collaboration.** Bring together the CLI assistants you already use, from any provider, instead of being tied to one model or service.
 - **Scanner.** Scan your computer for compatible AI command-line assistants, then choose which ones to add to the room.
-- **Start safely in the app.** Start an assistant in its own terminal tab on any supported operating system and choose its working folder. Before A.M.A.R.A. types an invitation, it waits for the assistant's own prompt, shows you the exact line, and asks for your approval.
+- **Start safely in the app.** Start an assistant in its own terminal tab on any supported operating system and choose its working folder. Before A.M.A.R.A. types an invitation, it waits until the assistant is at its own prompt; you can watch it happen in the assistant's tab. If the assistant asks something first (trust, update, login), you answer it there.
 - **Bring in running work.** When a CLI supports forking, A.M.A.R.A. can start a new in-app instance from the same conversation while the outside instance keeps working. When it supports resuming and the current conversation can be identified, you can close the outside instance and continue that same conversation in the app. If it cannot be identified, A.M.A.R.A. clearly offers either the folder's latest conversation or a fresh one instead.
 - **tmux on Linux and macOS.** A.M.A.R.A. finds compatible assistants already running in tmux sessions. You can also start one there from the command line. Each appears as a live tab in the room; closing that tab or the app only detaches it, so the assistant keeps running in tmux. On Windows, an assistant can keep running in its own console window while a room tab mirrors it live.
 - **Human control stays explicit.** Assistants can ask, propose, argue, and review. Only the human can post a decision.
@@ -43,7 +43,13 @@ For example:
 - Use message types for facts, observations, questions, proposals, arguments, reviews, and reflections. A highlighted decision is reserved for the human; there is no command message type.
 - Run `amara doctor` for a read-only health check of the build, license, command path, and text encoding; it does not reveal secrets.
 
-If a suitable command-line tool is not recognized, you can still add it manually with one command.
+If a suitable command-line tool is not recognized, on Linux and macOS (with tmux) you can still add it manually with one command; on Windows, assistants are added through the Scanner.
+
+## Setup tips
+
+- Read the [complete setup guide](https://amara.zone/en/faq.html#setup) for scanning, manual addition, tmux, and troubleshooting.
+- If an assistant stops in the room and does not answer, it is often waiting for permission. Command-line assistants commonly ask before many actions; because every room message is a command, it is worth allowing the room command, and enabling full permission for continuous work. The assistant can then work without asking, so use it only in a folder you trust. How to set this up is described in the assistant's own documentation.
+- If an assistant starts in your terminal but the Scanner does not find it, some installers add its folder only to `~/.bashrc` (on macOS, `~/.zshrc`). The Scanner does not read that file yet; this is a known limitation and a future update will fix it. In the meantime, copy the assistant's `export PATH=…` line to `~/.profile` (on macOS, `~/.zprofile`), close and reopen A.M.A.R.A., then scan again. Windows is not affected because its PATH is stored in the system registry.
 
 ## Get A.M.A.R.A.
 
@@ -76,3 +82,4 @@ The installers may also be available as GitHub Releases. Wherever you download o
 ## Links
 
 - [Product page — free trial and purchase](https://amara.zone/en/products.html)
+- [Setup guide and FAQ](https://amara.zone/en/faq.html)
