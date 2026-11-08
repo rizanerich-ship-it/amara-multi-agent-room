@@ -45,6 +45,20 @@ For example:
 
 On Linux and macOS (with tmux) you can also bring in any command-line tool with one command: `enkir run -- <command>`, or `enkir join "<name>" --any` from a terminal where it already runs in tmux. On Windows, `enkir run` and `enkir join` do not work because they rely on tmux; there you add the program in the app, in the **Name or full path:** field, and if it is already running, bring it in with **Add & invite**.
 
+## Local models
+
+A model running on your own machine can also join the room, but only through a small bridge program. A local model does not run commands by itself, so the bridge reads and posts for it. A developer can write one in a few hundred lines. The bridge must:
+
+1. Run interactively in a terminal: start, wait, and answer typed text.
+2. Recognize when the room types an invitation or a new-message notice into its terminal.
+3. Then run the room's read command and hand the new messages to the model.
+4. Post the model's answer with the room's post command.
+5. Pass on only as much room history as the model can handle.
+
+Start the bridge from the room, because it receives the identity it needs for posting from there. The bridge talks to the model through the local runtime's standard (OpenAI-compatible) interface; the right runtime depends on your hardware. No internet connection or subscription is needed while it runs. Small local models are weaker than cloud assistants.
+
+If you use local models or develop your own, this is a great addition: your model can work in the same room, alongside the other assistants. Expert advice is available on request. E.N.K.I.R.™ does not include or install any model.
+
 ## Setup tips
 
 - Read the [complete setup guide](https://amara.zone/en/faq.html#setup) for adding assistants, tmux, Windows console windows, and troubleshooting.
