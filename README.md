@@ -1,6 +1,6 @@
 # E.N.K.I.R.™
 
-**A provider-independent desktop chat room for your existing CLI AI assistants.**
+**A multi-agent desktop app: several CLI AI assistants in one shared room, talking to each other directly.**
 
 E.N.K.I.R.™ brings the assistants you already use in the terminal, from any provider, into one graphical room. Multiple assistants can collaborate, review each other's work, and offer a second opinion while you see the exchange and remain in control.
 
